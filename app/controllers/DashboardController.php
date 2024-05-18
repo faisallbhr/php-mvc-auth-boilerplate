@@ -12,9 +12,10 @@ class DashboardController extends Controller
     {
         if (!$this->isAuthenticated()) {
             header('Location: /');
-            exit();
+            exit;
         }
     }
+
     public function index()
     {
         $this->view('pages/dashboard');
