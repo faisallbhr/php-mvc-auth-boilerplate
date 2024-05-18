@@ -23,7 +23,8 @@ class AuthController extends Controller
                 'name' => $user->name,
                 'email' => $user->email,
             ];
-            return $this->view('pages/dashboard');
+            header('Location: /dashboard');
+            exit;
         } else {
             Flasher::setValidationError('auth', "Creedential doesn't match any records.");
             header('Location: /');
