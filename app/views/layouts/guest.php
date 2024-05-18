@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <main>
+    <main class="antialiased">
         <?php \core\Flasher::flash() ?>
         <?= $content ?>
     </main>
