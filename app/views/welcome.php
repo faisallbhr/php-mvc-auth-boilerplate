@@ -6,12 +6,6 @@ ob_start();
 <div class="min-h-screen flex items-center justify-center px-4">
     <div class="max-w-md w-full p-6 bg-white rounded-lg shadow-lg">
         <h1 class="text-2xl font-semibold text-center mt-8 mb-6">Let's Authenticated!</h1>
-        <?php
-        $error = $_GET['error'] ?? '';
-        if ($error) {
-            echo "<small class='text-red-500 flex justify-center'>$error</small>";
-        }
-        ?>
         <form action="/login" method="POST">
             <div class="mb-6">
                 <label for="email" class="block mb-2 text-sm text-gray-600">Email</label>

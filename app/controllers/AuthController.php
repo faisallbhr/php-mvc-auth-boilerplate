@@ -16,30 +16,22 @@ class AuthController extends Controller
         $user = new User();
         $user = $user->getByEmail($email);
 
-        if ($user) {
-            $hashedPassword = $user['password'];
-            if (password_verify($password, $hashedPassword)) {
-                $_SESSION['user'] = [
-                    'id' => $user['id'],
-                    'name' => $user['name'],
-                    'email' => $user['email'],
-                ];
-                header('Location: /dashboard');
-                exit();
-            } else {
-                $errorMessage = "Password incorrect.";
-            }
+        if ($user && password_verify($password, $user->password)) {
+            $_SESSION['user'] = [
+                'id' => $user->id,
+                'name' => $user->name,
+                'email' => $user->email,
+            ];
+            return $this->view('pages/dashboard');
         } else {
-            $errorMessage = "Email not found.";
+            header('Location: /');
+            exit;
         }
-
-        header('Location: /?error=' . urlencode($errorMessage));
     }
 
     public function logout()
     {
         unset($_SESSION['user']);
-        header('Location: /');
-        $this->view('welcome');
+        return $this->view('welcome');
     }
 }

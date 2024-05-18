@@ -13,7 +13,7 @@ class ProductController extends Controller
     {
         if (!$this->isAuthenticated()) {
             header('Location: /');
-            exit();
+            exit;
         }
     }
     public function index()
