@@ -30,7 +30,7 @@ $(document).ready(function () {
   });
 
   $dropdownTrigger.on("click", function () {
-    $dropdown.toggleClass("opacity-0 !top-20 -z-10");
+    $dropdown.toggleClass("hidden");
   });
 
   $(document).on("click", function (event) {
@@ -41,7 +41,7 @@ $(document).ready(function () {
       clickOutside($dropdown, event) &&
       clickOutside($dropdownTrigger, event)
     ) {
-      $dropdown.addClass("opacity-0 -z-10").removeClass("!top-20");
+      $dropdown.addClass("hidden");
     }
   });
 

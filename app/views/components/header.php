@@ -32,7 +32,7 @@
         </button>
     </div>
     <div id="dropdown"
-        class="absolute right-6 top-24 duration-100 ease-in w-40 opacity-0 bg-white shadow-md rounded overflow-hidden divide-y gap-2 -z-10">
+        class="absolute right-6 top-20 duration-100 ease-in w-40 bg-white shadow-md rounded overflow-hidden divide-y gap-2 hidden">
         <a href="/logout" class="py-2 hover:bg-gray-200 px-4 block">
             <button class="text-tes">Logout</button>
         </a>
