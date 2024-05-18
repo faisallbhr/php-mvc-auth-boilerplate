@@ -6,6 +6,7 @@ require_once '../core/Autoloader.php';
 
 use core\Controller;
 use app\models\User;
+use core\Flasher;
 
 class AuthController extends Controller
 {
@@ -24,6 +25,7 @@ class AuthController extends Controller
             ];
             return $this->view('pages/dashboard');
         } else {
+            Flasher::setValidationError('auth', "Creedential doesn't match any records.");
             header('Location: /');
             exit;
         }

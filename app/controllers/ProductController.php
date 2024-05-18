@@ -6,6 +6,7 @@ require_once '../core/Autoloader.php';
 
 use core\Controller;
 use app\models\Product;
+use core\Flasher;
 
 class ProductController extends Controller
 {
@@ -20,6 +21,7 @@ class ProductController extends Controller
     {
         $products = new Product;
         $products = $products->all();
+        Flasher::setFlash('success', 'halo products');
         $this->view('pages/products/index', [
             'products' => $products
         ]);
