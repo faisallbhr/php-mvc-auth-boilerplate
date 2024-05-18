@@ -12,9 +12,9 @@
 
 <body>
     <main>
+        <?php \core\Flasher::flash() ?>
         <?= $content ?>
     </main>
-    <?php \core\Flasher::flash() ?>
 </body>
 
 </html>

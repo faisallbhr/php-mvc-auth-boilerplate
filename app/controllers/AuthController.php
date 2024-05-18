@@ -34,6 +34,7 @@ class AuthController extends Controller
     public function logout()
     {
         unset($_SESSION['user']);
-        return $this->view('welcome');
+        header('Location: /');
+        exit;
     }
 }
