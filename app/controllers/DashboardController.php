@@ -4,6 +4,7 @@ namespace app\controllers;
 
 require_once '../core/Autoloader.php';
 
+use app\models\Product;
 use core\Controller;
 
 class DashboardController extends Controller
@@ -18,6 +19,10 @@ class DashboardController extends Controller
 
     public function index()
     {
-        $this->view('pages/dashboard');
+        $products = new Product();
+        $products = $products->count();
+        $this->view('pages/dashboard', [
+            'products' => $products
+        ]);
     }
 }
