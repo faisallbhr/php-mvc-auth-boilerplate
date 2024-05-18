@@ -79,16 +79,11 @@ class Model
         foreach ($conditions as $column => $value) {
             $whereConditions[] = "$column = ?";
         }
-
         $whereClause = implode(" AND ", $whereConditions);
-
         $sql = "SELECT * FROM {$this->table} WHERE $whereClause";
-
         $prepare = $this->pdo->prepare($sql);
         $prepare->execute(array_values($conditions));
-
         $result = $prepare->fetchAll(PDO::FETCH_OBJ);
         return $result;
     }
-
 }

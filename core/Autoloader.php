@@ -12,7 +12,6 @@ class Autoloader
                 require $file;
                 return true;
             }
-
             return false;
         });
     }

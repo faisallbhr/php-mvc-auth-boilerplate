@@ -8,7 +8,7 @@ class Router
 {
     public static function get($path = '/', $controller = '', $action = null)
     {
-        self::handle('GET', $path, $controller, $action);
+        return self::handle('GET', $path, $controller, $action);
     }
 
     public static function post($path = '/', $controller = '', $action = null)
@@ -21,11 +21,9 @@ class Router
         if (!isset($_POST['_method'])) {
             return;
         }
-
         if ($_POST['_method'] != 'UPDATE') {
             return;
         }
-
         return self::handle('POST', $path, $controller, $action);
     }
 
@@ -34,27 +32,21 @@ class Router
         if (!isset($_POST['_method'])) {
             return;
         }
-
         if ($_POST['_method'] != 'DELETE') {
             return;
         }
-
         return self::handle('POST', $path, $controller, $action);
     }
 
-    public static function handle($method = 'GET', $path = '/', $controller = '', $action = null, $middleware = null)
+    public static function handle($method = 'GET', $path = '/', $controller = '', $action = null)
     {
         $currentMethod = $_SERVER['REQUEST_METHOD'];
         $currentUri = $_SERVER['REQUEST_URI'];
-
         $currentUri = parse_url($currentUri, PHP_URL_PATH);
-
         if ($currentMethod != $method) {
             return false;
         }
-
         $pattern = '#^' . preg_replace('/{([^\/]+)}/', '(?P<$1>\d+)', $path) . '$#siD';
-
         if (preg_match($pattern, $currentUri, $matches)) {
             if (is_callable($controller)) {
                 $controller($matches);

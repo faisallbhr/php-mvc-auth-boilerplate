@@ -9,14 +9,6 @@ use app\models\User;
 
 class AuthController extends Controller
 {
-    public function index()
-    {
-        if ($this->isAuthenticated()) {
-            header('Location: /dashboard');
-            exit();
-        }
-        $this->view('welcome');
-    }
     public function login()
     {
         $email = $_POST['email'];
@@ -42,7 +34,6 @@ class AuthController extends Controller
         }
 
         header('Location: /?error=' . urlencode($errorMessage));
-        exit();
     }
 
     public function logout()
