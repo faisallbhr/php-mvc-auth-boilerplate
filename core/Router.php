@@ -54,7 +54,7 @@ class Router
                 $controller = '\\app\\controllers\\' . $controller;
                 $controller = new $controller();
                 $controller->$action($matches);
-                exit();
+                exit;
             }
         }
     }

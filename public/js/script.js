@@ -30,7 +30,7 @@ $(document).ready(function () {
   });
 
   $dropdownTrigger.on("click", function () {
-    $dropdown.toggleClass("opacity-0 !top-20");
+    $dropdown.toggleClass("hidden");
   });
 
   $(document).on("click", function (event) {
@@ -41,9 +41,14 @@ $(document).ready(function () {
       clickOutside($dropdown, event) &&
       clickOutside($dropdownTrigger, event)
     ) {
-      $dropdown.addClass("opacity-0").removeClass("!top-20");
+      $dropdown.addClass("hidden");
     }
   });
 
   setActiveSidebarLinks();
 });
+
+function closeAlert() {
+  const alert = document.querySelector('[role="alert"]');
+  alert.remove();
+}
