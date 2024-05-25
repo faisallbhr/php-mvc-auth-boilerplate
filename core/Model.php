@@ -94,4 +94,22 @@ class Model
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
         return $result['count'];
     }
+
+    public function paginate($perPage = 10, $currentPage = 1)
+    {
+        $offset = ($currentPage - 1) * $perPage;
+        $sql = "SELECT * FROM {$this->table} LIMIT :perPage OFFSET :offset";
+        $prepare = $this->pdo->prepare($sql);
+        $prepare->bindParam(':perPage', $perPage, PDO::PARAM_INT);
+        $prepare->bindParam(':offset', $offset, PDO::PARAM_INT);
+        $prepare->execute();
+        $result = $prepare->fetchAll(PDO::FETCH_OBJ);
+        $totalRows = $this->count();
+        $totalPages = ceil($totalRows / $perPage);
+        return [
+            'data' => $result,
+            'totalPages' => $totalPages,
+            'currentPage' => $currentPage
+        ];
+    }
 }
