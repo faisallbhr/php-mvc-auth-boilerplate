@@ -8,6 +8,7 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/pagination.css">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 </head>

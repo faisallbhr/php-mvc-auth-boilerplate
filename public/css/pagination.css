@@ -1,0 +1,34 @@
+.pagination {
+  display: flex;
+  list-style: none;
+}
+
+.pagination li span {
+  display: inline-block;
+  padding: 8px 12px;
+  background-color: #e5e7eb;
+  border: 1px solid #d1d5db;
+  color: #6b7280;
+  cursor: not-allowed;
+}
+
+.pagination li a {
+  display: inline-block;
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+}
+
+.pagination li a:hover {
+  background-color: #e5e7eb;
+}
+
+@media (max-width: 768px) {
+  .pagination li {
+    display: none;
+  }
+
+  .pagination li:first-child,
+  .pagination li:last-child {
+    display: block;
+  }
+}
