@@ -5,11 +5,13 @@ class Pagination
 {
     private $currentPage;
     private $totalPages;
+    private $itemsPerPage;
 
-    public function __construct($currentPage, $totalPages)
+    public function __construct($currentPage, $totalPages, $itemsPerPage)
     {
         $this->currentPage = $currentPage;
         $this->totalPages = $totalPages;
+        $this->itemsPerPage = $itemsPerPage;
     }
 
     public function render()
@@ -18,7 +20,12 @@ class Pagination
             return '';
         }
 
-        $html = '<ul class="pagination">';
+        $html = '<div class="pagination">';
+        $html .= '<div class="pagination-summary">';
+        $html .= $this->getPaginationSummary();
+        $html .= '</div>';
+
+        $html .= '<ul class="pagination-page">';
 
         if ($this->currentPage > 1) {
             $html .= $this->getPageItem($this->currentPage - 1, '&laquo;', false);
@@ -35,6 +42,7 @@ class Pagination
         }
 
         $html .= '</ul>';
+        $html .= '</div>';
 
         return $html;
     }
@@ -75,4 +83,13 @@ class Pagination
             return '<li><a href="?page=' . $page . '">' . $label . '</a></li>';
         }
     }
+
+    private function getPaginationSummary()
+    {
+        $startItem = ($this->currentPage - 1) * $this->itemsPerPage + 1;
+        $endItem = min($this->currentPage * $this->itemsPerPage, $this->itemsPerPage * $this->totalPages);
+
+        return '<p>Showing ' . $startItem . ' - ' . $endItem . ' of ' . ($this->itemsPerPage * $this->totalPages) . ' items</p>';
+    }
+
 }

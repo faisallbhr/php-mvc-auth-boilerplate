@@ -60,7 +60,7 @@ ob_start();
         </table>
     </div>
 
-    <div class="mt-4 flex justify-center">
+    <div class="mt-4">
         <?php echo $pagination ?>
     </div>
 </section>
