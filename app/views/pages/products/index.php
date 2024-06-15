@@ -2,6 +2,7 @@
 $title = 'Products';
 ob_start();
 ?>
+
 <section class="bg-white rounded p-4 shadow-lg">
     <h2 class="font-bold text-xl mb-4">Products List</h2>
     <div class="max-w-full overflow-x-auto">
@@ -41,7 +42,6 @@ ob_start();
                                             fill="" />
                                     </svg>
                                 </a>
-
                                 <input type="text" name="_method" value="DELETE" hidden>
                                 <button class="hover:text-red-500"
                                     onclick="return confirm('Are you sure want to delete <?= $product->name ?>?')">
