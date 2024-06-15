@@ -19,15 +19,16 @@
         <div class="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
             <?php include_once __DIR__ . '/../components/header.php' ?>
             <main class="antialiased p-4">
-                <?php \core\Flasher::flash() ?>
+                <div class="">
+                    <?php \core\Flasher::flash() ?>
+                </div>
                 <?= $content ?>
             </main>
         </div>
     </div>
 
-
     <script src="/js/script.js"></script>
-
+    <?= isset($scripts) ? $scripts : '' ?>
 </body>
 
 </html>

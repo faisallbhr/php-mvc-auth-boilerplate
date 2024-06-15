@@ -20,8 +20,7 @@ ob_start();
                     required>
             </div>
             <?php if (\core\Flasher::hasValidationError('auth')): ?>
-                <small
-                    class="text-red-500 flex justify-center"><?php echo \core\Flasher::getValidationError('auth'); ?></small>
+                <small class="text-red-500 flex justify-center"><?= \core\Flasher::getValidationError('auth'); ?></small>
             <?php endif; ?>
             <button type="submit"
                 class="w-32 bg-cyan-500 text-white py-2 rounded-lg mx-auto block focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 mt-4 mb-6">Login</button>

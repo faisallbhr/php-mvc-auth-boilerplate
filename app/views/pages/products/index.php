@@ -2,15 +2,20 @@
 $title = 'Products';
 ob_start();
 ?>
+
 <section class="bg-white rounded p-4 shadow-lg">
     <h2 class="font-bold text-xl mb-4">Products List</h2>
     <div class="max-w-full overflow-x-auto">
+        <button id="openProductModal"
+            class="bg-cyan-500 hover:bg-cyan-600 text-white font-semibold py-2 px-4 rounded mb-4">
+            Add New Product
+        </button>
         <table class="w-full table-auto">
             <thead>
                 <tr class="bg-gray-300">
                     <th class="py-4 px-4 font-medium w-[20px]">No</th>
-                    <th class="py-4 px-4 font-medium">Name</th>
                     <th class="py-4 px-4 font-medium">Thumbnail</th>
+                    <th class="py-4 px-4 font-medium">Name</th>
                     <th class="py-4 px-4 font-medium">Price</th>
                     <th class="py-4 px-4 font-medium">Actions</th>
                 </tr>
@@ -18,13 +23,16 @@ ob_start();
             <tbody>
                 <?php foreach ($products['data'] as $product): ?>
                     <tr>
-                        <td class="border-b border-[#eee] py-5 px-4"><?php echo $product->id ?></td>
-                        <td class="border-b border-[#eee] py-5 px-4"><?php echo $product->name ?></td>
-                        <td class="border-b border-[#eee] py-5 px-4"><?php echo $product->thumbnail ?></td>
-                        <td class="border-b border-[#eee] py-5 px-4 text-center">$<?php echo $product->price ?></td>
+                        <td class="border-b border-[#eee] py-5 px-4"><?= $product->id ?></td>
+                        <td class="border-b border-[#eee] py-5 px-4 w-40">
+                            <img src="<?= $product->thumbnail ?>" alt="" class="w-20 h-20 object-cover mx-auto">
+                        </td>
+                        <td class="border-b border-[#eee] py-5 px-4 text-center"><?= $product->name ?></td>
+                        <td class="border-b border-[#eee] py-5 px-4 text-center">$<?= $product->price ?></td>
                         <td class="border-b border-[#eee] py-5 px-4">
-                            <div class="flex items-center space-x-3.5 justify-center">
-                                <button class="hover:text-blue-500">
+                            <form action="/products/<?= $product->id ?>" method="post"
+                                class="flex items-center space-x-3.5 justify-center">
+                                <a href="/products/<?= $product->id ?>" class="hover:text-blue-500">
                                     <svg class="fill-current" width="18" height="18" viewBox="0 0 18 18" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path
@@ -34,8 +42,10 @@ ob_start();
                                             d="M9 11.3906C7.67812 11.3906 6.60938 10.3219 6.60938 9C6.60938 7.67813 7.67812 6.60938 9 6.60938C10.3219 6.60938 11.3906 7.67813 11.3906 9C11.3906 10.3219 10.3219 11.3906 9 11.3906ZM9 7.875C8.38125 7.875 7.875 8.38125 7.875 9C7.875 9.61875 8.38125 10.125 9 10.125C9.61875 10.125 10.125 9.61875 10.125 9C10.125 8.38125 9.61875 7.875 9 7.875Z"
                                             fill="" />
                                     </svg>
-                                </button>
-                                <button class="hover:text-red-500">
+                                </a>
+                                <input type="text" name="_method" value="DELETE" hidden>
+                                <button class="hover:text-red-500"
+                                    onclick="return confirm('Are you sure want to delete <?= $product->name ?>?')">
                                     <svg class="fill-current" width="18" height="18" viewBox="0 0 18 18" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path
@@ -52,7 +62,7 @@ ob_start();
                                             fill="" />
                                     </svg>
                                 </button>
-                            </div>
+                            </form>
                         </td>
                     </tr>
                 <?php endforeach ?>
@@ -61,9 +71,69 @@ ob_start();
     </div>
 
     <div class="mt-4">
-        <?php echo $pagination ?>
+        <?= $pagination ?>
     </div>
 </section>
+
+<div id="productModal" class="fixed z-[9999] inset-0 hidden bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full">
+    <div class="relative top-1/4 -translate-y-1/4 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
+        <h3 class="text-xl font-bold text-gray-900 mb-4 text-center">ADD NEW PRODUCT</h3>
+        <form action="/products" method="post" enctype="multipart/form-data">
+            <div class="mb-4">
+                <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+                <input type="text" id="name" name="name" class="mt-1 p-2 border w-full rounded-md" required>
+            </div>
+            <div class="mb-4">
+                <label for="thumbnail" class="block text-sm font-medium text-gray-700">Thumbnail</label>
+                <input type="file" name="thumbnail" id="thumbnail"
+                    class="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring-2 focus:ring-black"
+                    required>
+            </div>
+            <div class="mb-4">
+                <label for="price" class="block text-sm font-medium text-gray-700">Price</label>
+                <input type="text" id="price" name="price" class="mt-1 p-2 border w-full rounded-md" required>
+            </div>
+            <div class="mb-4">
+                <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
+                <textarea id="description" name="description" rows="4"
+                    class="mt-1 p-2 border w-full rounded-md"></textarea>
+            </div>
+            <div class="flex justify-end">
+                <button type="button" id="closeProductModal"
+                    class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded mr-2">
+                    Cancel
+                </button>
+                <button type="submit" class="bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-2 px-4 rounded">
+                    Add
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<?php
+ob_start();
+?>
+<script>
+    $(document).ready(function () {
+        $('#openProductModal').click(function () {
+            $('#productModal').removeClass('hidden');
+        });
+
+        $('#closeProductModal').click(function () {
+            $('#productModal').addClass('hidden');
+        });
+
+        $(window).click(function (event) {
+            if (event.target.id == 'productModal') {
+                $('#productModal').addClass('hidden');
+            }
+        });
+    })
+</script>
+<?php
+$scripts = ob_get_clean();
+?>
 
 <?php
 $content = ob_get_clean();

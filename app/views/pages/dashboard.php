@@ -7,7 +7,7 @@ ob_start();
     <div class="bg-white rounded p-4 shadow-lg flex justify-between items-end">
         <div>
             <h1 class="font-bold text-xl">Products</h1>
-            <span>Total: <?php echo $products; ?></span>
+            <span>Total: <?= $products; ?></span>
         </div>
         <button class="text-sm underline underline-offset-2 hover:text-cyan-700">
             <a href="/products">More details</a>

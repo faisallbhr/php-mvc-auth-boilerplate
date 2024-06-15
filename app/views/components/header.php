@@ -21,7 +21,7 @@
         </svg>
     </button>
     <div>
-        <span><?php echo $_SESSION['user']['name'] ?></span>
+        <span><?= $_SESSION['user']['name'] ?></span>
         <button id="dropdownTrigger" class="p-2">
             <svg className="hidden fill-current sm:block" width="12" height="8" viewBox="0 0 12 8" fill="none"
                 xmlns="http://www.w3.org/2000/svg">
