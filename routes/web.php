@@ -17,3 +17,4 @@ Router::get('/logout', 'AuthController', 'logout');
 Router::get('/dashboard', 'DashboardController', 'index');
 Router::get('/products', 'ProductController', 'index');
 Router::post('/products', 'ProductController', 'store');
+Router::delete('/products/{id}', 'ProductController', 'destroy');

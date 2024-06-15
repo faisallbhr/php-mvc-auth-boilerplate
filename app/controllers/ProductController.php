@@ -81,4 +81,12 @@ class ProductController extends Controller
             exit;
         }
     }
+    public function destroy($data)
+    {
+        $product = new Product();
+        $product = $product->delete($data['id']);
+        Flasher::setFlash('success', 'Product deleted successfully.');
+        header('Location: /products');
+        exit;
+    }
 }
