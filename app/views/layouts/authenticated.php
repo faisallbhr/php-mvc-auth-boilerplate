@@ -19,9 +19,7 @@
         <div class="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
             <?php include_once __DIR__ . '/../components/header.php' ?>
             <main class="antialiased p-4">
-                <div class="">
-                    <?php \core\Flasher::flash() ?>
-                </div>
+                <?php \core\Flasher::flash() ?>
                 <?= $content ?>
             </main>
         </div>
