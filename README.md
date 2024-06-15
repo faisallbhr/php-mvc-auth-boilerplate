@@ -2,6 +2,10 @@
 
 I hate the syntax, but I never give up :D
 
+### Welcome
+
+![Welcome](docs/welcome.jpg)
+
 ### Dashboard
 
 ![Dashboard](docs/dashboard.jpg)
