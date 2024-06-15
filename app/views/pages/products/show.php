@@ -27,7 +27,7 @@ ob_start();
             </button>
             <a href="/products"
                 class="px-3 py-1 rounded bg-cyan-500 border border-cyan-500 hover:bg-cyan-600 text-white font-medium">
-                Kembali
+                Back
             </a>
         </div>
     </div>
