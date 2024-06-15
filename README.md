@@ -2,6 +2,22 @@
 
 I hate the syntax, but I never give up :D
 
+### Dashboard
+
+![Dashboard](docs/dashboard.jpg)
+
+### Products Table
+
+![Products Table](docs/products-table.jpg)
+
+### Create Product
+
+![Create Product](docs/create-product.jpg)
+
+### Product Detail
+
+![Product Detail](docs/product-detail.jpg)
+
 ## How to use it?
 
 Clone the repository to your web server:
@@ -23,6 +39,8 @@ private function __construct()
     }
 }
 ```
+
+Import SQL from /utils/db.sql into your database
 
 Run your server, then access this project🤙
 
