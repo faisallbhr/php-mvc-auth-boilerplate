@@ -9,5 +9,4 @@ use core\Model;
 class Product extends Model
 {
     protected string $table = 'products';
-    private int $id;
 }
