@@ -38,7 +38,7 @@ class Flasher
             $textColor = $type === 'success' ? 'text-green-700' : 'text-red-700';
 
             echo '
-            <div class="' . $bgColor . ' border ' . $borderColor . ' ' . $textColor . ' px-4 py-3 rounded flex justify-between items-center"
+            <div class="' . $bgColor . ' border ' . $borderColor . ' ' . $textColor . ' px-4 py-3 rounded flex justify-between items-center mb-4"
                 role="alert">
                 <div>
                     <strong class="font-bold capitalize">' . ucfirst($type) . '!</strong>
