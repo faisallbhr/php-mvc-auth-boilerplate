@@ -21,12 +21,12 @@ ob_start();
             <tbody>
                 <?php foreach ($products['data'] as $product): ?>
                     <tr>
-                        <td class="border-b border-[#eee] py-5 px-4"><?php echo $product->id ?></td>
+                        <td class="border-b border-[#eee] py-5 px-4"><?= $product->id ?></td>
                         <td class="border-b border-[#eee] py-5 px-4 w-40">
                             <img src="<?= $product->thumbnail ?>" alt="" class="w-20 h-20 object-cover mx-auto">
                         </td>
-                        <td class="border-b border-[#eee] py-5 px-4 text-center"><?php echo $product->name ?></td>
-                        <td class="border-b border-[#eee] py-5 px-4 text-center">$<?php echo $product->price ?></td>
+                        <td class="border-b border-[#eee] py-5 px-4 text-center"><?= $product->name ?></td>
+                        <td class="border-b border-[#eee] py-5 px-4 text-center">$<?= $product->price ?></td>
                         <td class="border-b border-[#eee] py-5 px-4">
                             <div class="flex items-center space-x-3.5 justify-center">
                                 <button class="hover:text-blue-500">
@@ -66,7 +66,7 @@ ob_start();
     </div>
 
     <div class="mt-4">
-        <?php echo $pagination ?>
+        <?= $pagination ?>
     </div>
 
     <div id="productModal"
