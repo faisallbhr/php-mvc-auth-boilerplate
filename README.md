@@ -24,7 +24,7 @@ I hate the syntax, but I never give up 😁.
 
 ## How to use it?
 
-Clone the repository to your web server:
+Clone the repository into your web server directory:
 
 ```bash
 git clone https://github.com/faisallbhr/php-mvc-auth-boilerplate.git
