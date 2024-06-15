@@ -1,6 +1,6 @@
 # PHP MVC with Authentication Boilerplate
 
-I hate the syntax, but I never give up :D
+I hate the syntax, but I never give up 😁.
 
 ### Welcome
 
@@ -44,10 +44,10 @@ private function __construct()
 }
 ```
 
-Import SQL from /utils/db.sql into your database
+Import SQL from /utils/db.sql into your database 😉.
 
-Run your server, then access this project🤙
+Run your server, then access this project 🤙.
 
 ## Let's try it!
 
-I didn't really like using native PHP before, but I tried it and enjoyed it :D
+I didn't really like using native PHP before, but I tried it and enjoyed it 😁.
