@@ -111,6 +111,9 @@ ob_start();
     </div>
 </div>
 
+<?php
+ob_start();
+?>
 <script>
     $(document).ready(function () {
         $('#openProductModal').click(function () {
@@ -128,6 +131,9 @@ ob_start();
         });
     })
 </script>
+<?php
+$scripts = ob_get_clean();
+?>
 
 <?php
 $content = ob_get_clean();

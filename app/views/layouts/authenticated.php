@@ -27,9 +27,8 @@
         </div>
     </div>
 
-
     <script src="/js/script.js"></script>
-
+    <?= isset($scripts) ? $scripts : '' ?>
 </body>
 
 </html>
