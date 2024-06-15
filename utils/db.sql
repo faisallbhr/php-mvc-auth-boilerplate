@@ -14,4 +14,4 @@ CREATE TABLE products (
 );
 
 INSERT INTO users (name, email, password)
-VALUES ('PHP MVC', 'phpmvc@mail.com', '$2y$12$eLo.1OukyoI6BH/CwDbcWOVJbEqUODgSG3EtCjZgTQ5CiIvTLnXTW');
+VALUES ('PHP MVC', 'phpmvc@mail.com', '$2y$12$eLo.1OukyoI6BH/CwDbcWOVJbEqUODgSG3EtCjZgTQ5CiIvTLnXTW'); /* password */
